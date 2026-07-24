@@ -141,7 +141,14 @@ All **34 tests** pass.
   EXPOSE 3000
   CMD ["node","src/index.js"]
   ```
-- Set `GITHUB_TOKEN` in the container environment.  
+- **Vercel** (serverless function):
+  1. Push the repo to GitHub/GitLab/Bitbucket.  
+  2. Import the project in Vercel.  
+  3. Set **Build Command** to `npm ci` (or leave blank).  
+  4. Set **Output Directory** to `.` (no build step).  
+  5. Add an environment variable `GITHUB_TOKEN` with your personal access token.  
+  6. Deploy – Vercel will expose the Express app as a serverless function at `https://<project>.vercel.app/`.
+- Set `GITHUB_TOKEN` in the container / Vercel environment.  
 - Put behind a reverse proxy (NGINX, Cloudflare, Vercel, etc.) for TLS and caching.
 
 ---

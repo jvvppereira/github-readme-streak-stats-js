@@ -85,4 +85,5 @@ app.listen(PORT, () => {
   console.log(`   Example: http://localhost:${PORT}/?user=denvercoder1`);
 });
 
-module.exports = { app, generateErrorCard };
+module.exports = app;
+module.exports.generateErrorCard = generateErrorCard;
