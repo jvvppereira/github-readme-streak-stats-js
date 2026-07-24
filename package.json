@@ -1,0 +1,31 @@
+{
+  "name": "github-readme-streak-stats-js",
+  "version": "1.0.0",
+  "description": "GitHub Readme Streak Stats - Node.js version",
+  "main": "src/index.js",
+  
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "github",
+    "streak",
+    "stats",
+    "readme",
+    "svg"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
