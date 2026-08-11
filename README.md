@@ -1,6 +1,6 @@
 # GitHub Readme Streak Stats (Node.js port)
 
-A lightweight **Node.js** service that generates an SVG card showing a GitHub user's contribution streak (total contributions, current streak, longest streak). It is a port of the original **github-readme-streak-stats** (https://github.com/DenverCoder1/github-readme-streak-stats) rewritten in JavaScript for easy deployment on any platform that supports Node.
+A lightweight **Node.js** service that generates an SVG card showing a GitHub user's contribution streak (total contributions, current streak, longest streak). It is a port of the original [**github-readme-streak-stats**](https://github.com/DenverCoder1/github-readme-streak-stats) rewritten in JavaScript for easy deployment on any platform that supports Node.
 
 ---
 
