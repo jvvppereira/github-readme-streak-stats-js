@@ -67,7 +67,9 @@ tests/
 ### Prerequisites
 - Node.js **≥ 18**  
 - A **GitHub Personal Access Token** (classic) with `public_repo` scope (or `read:user` for private contributions).  
-  Export it as `GITHUB_TOKEN` (or `TOKEN`) environment variable.
+  Export it as `GITHUB_TOKEN` (or `TOKEN`) environment variable.  
+- (Optional) `WHITELIST` – comma‑separated list of GitHub usernames that are allowed to be queried.  
+  If set, requests for users not in the list return a **403** SVG error card (“User not allowed”).
 
 ### Installation
 ```bash

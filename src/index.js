@@ -23,6 +23,13 @@ app.get('/', async (req, res) => {
   const mode = req.query.mode || 'daily';
   const date_format = req.query.date_format;
 
+  const whitelistEnv = process.env.WHITELIST;
+  const whitelist = whitelistEnv ? whitelistEnv.split(',').map(u => u.trim()).filter(Boolean) : [];
+  if (whitelist.length && !whitelist.includes(username)) {
+    const svg = generateErrorCard('User not allowed', { locale, theme, mode, date_format });
+    return res.status(403).set('Content-Type', 'image/svg+xml').send(svg);
+  }
+
   if (!username) {
     const svg = generateErrorCard('Please provide a username', { locale, theme, mode });
     return res.status(400).set('Content-Type', 'image/svg+xml').send(svg);
