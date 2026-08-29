@@ -82,7 +82,7 @@ function formatDate(dateStr, locale, dateFormat) {
   }
 }
 
-function generateCard(stats, cardWidth = 495, cardHeight = 195, options = {}) {
+function generateCard(stats, cardWidth = 495, cardHeight = 190, options = {}) {
   const {
     theme = 'default',
     hide_border = false,
@@ -123,7 +123,8 @@ function generateCard(stats, cardWidth = 495, cardHeight = 195, options = {}) {
     side_num: parseColor(sideNums || themeColors.side_num),
     side_labels: parseColor(sideLabels || themeColors.side_labels),
     dates: parseColor(dates || themeColors.dates),
-    stroke: parseColor(stroke || themeColors.stroke)
+    stroke: parseColor(stroke || themeColors.stroke),
+    fire_color: parseColor(themeColors.fire_color)
   };
 
   const radius = Math.max(0, Math.min(248, border_radius));
@@ -204,8 +205,12 @@ function generateCard(stats, cardWidth = 495, cardHeight = 195, options = {}) {
       // Gap mask: small circle filled with background color at the top of the ring
       const gapRadius = 8;
       svg += `<circle cx="${x}" cy="${ringY - radius}" r="${gapRadius}" fill="${colors.bg_color}" />`;
-      // Fire emoji at the top of the ring (inside the gap)
-      svg += `<text x="${x}" y="${ringY - radius + 4}" class="fire">🔥</text>`;
+      // Fire icon at the top of the ring (inside the gap)
+      const firePath = `M10.507 1.508a.75.75 0 0 1 .734-.239c3.608.829 5.433 4.783 5.003 8.321c-.166 1.376-.578 2.454-1.185 3.312l-.011.016q.206-.102.384-.218c.592-.385 1.026-.892 1.592-1.552l.211-.246a.75.75 0 0 1 1.238.151A7.25 7.25 0 1 1 8.025 8.26l.067-.068a1 1 0 0 1 .114-.094c.865-.583 1.487-1.06 1.906-1.62c.395-.529.638-1.175.638-2.154a5.7 5.7 0 0 0-.378-2.055a.75.75 0 0 1 .135-.76m1.664 1.743q.079.526.079 1.072c0 1.268-.328 2.237-.937 3.052c-.571.766-1.363 1.353-2.208 1.925l-.073.073a1 1 0 0 1-.128.103a5.75 5.75 0 1 0 8.648 3.346c-.38.411-.8.809-1.303 1.136c-.924.599-2.08.941-3.749.941a.75.75 0 0 1-.362-1.407c.679-.374 1.254-.831 1.697-1.456c.44-.624.779-1.457.92-2.626c.307-2.531-.74-5.029-2.584-6.16`;
+      const scale = 15 / 24;
+      const tx = x - 12 * scale;
+      const ty = (ringY - radius + 4) - 12 * scale;
+      svg += `<g transform="translate(${tx}, ${ty}) scale(${scale})"><path fill="${colors.fire_color}" d="${firePath}"/></g>`;
     }
 
     // Number
@@ -250,7 +255,7 @@ function generateErrorCard(message, params) {
     currentStreak: { length: 0, start: null, end: null },
     longestStreak: { length: 0, start: null, end: null },
     firstContribution: null
-  }, 495, 195, {
+  }, 495, 190, {
     locale: params.locale || 'en',
     theme: params.theme || 'default',
     mode: params.mode || 'daily',
