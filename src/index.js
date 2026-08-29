@@ -51,7 +51,7 @@ app.get('/', async (req, res) => {
       firstContribution: stats.firstContribution
     };
 
-    const svg = generateCard(cardData, 495, 195, { locale, theme, mode, date_format });
+    const svg = generateCard(cardData, 495, 190, { locale, theme, mode, date_format });
 
     res.set('Content-Type', 'image/svg+xml');
     res.set('Cache-Control', 'public, max-age=3600');
@@ -77,7 +77,7 @@ function generateErrorCard(message, params) {
     currentStreak: { length: 0, start: null, end: null },
     longestStreak: { length: 0, start: null, end: null },
     firstContribution: null
-  }, 495, 195, {
+  }, 495, 190, {
     locale: params.locale || 'en',
     theme: params.theme || 'default',
     mode: params.mode || 'daily',
