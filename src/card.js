@@ -155,7 +155,7 @@ function generateCard(stats, cardWidth = 495, cardHeight = 190, options = {}) {
 
   // Vertically center the three‑column block (number, label, date).
   // The block spans ~50 px from the number baseline to the date baseline.
-  const yOffset = Math.round((cardHeight - 80) / 2);
+  const yOffset = Math.round((cardHeight - 60) / 2);
 
   // Three columns
   const columns = [
