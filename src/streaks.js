@@ -1,7 +1,7 @@
 function getWeekStart(date) {
   const d = new Date(date);
   const day = d.getDay(); // 0 Sun ... 6 Sat
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Monday as start
+  const diff = d.getDate() - day; // Sunday as start
   return new Date(d.setDate(diff));
 }
 
@@ -30,7 +30,7 @@ function calculateStreaks(contributions, mode = 'daily') {
   const lastDate = new Date(sortedDates[sortedDates.length - 1] + 'T00:00:00');
 
   if (mode === 'weekly') {
-    // Iterate week by week (Monday start)
+    // Iterate week by week (Sunday start)
     let weekStart = getWeekStart(firstDate);
     const lastWeekStart = getWeekStart(lastDate);
 
