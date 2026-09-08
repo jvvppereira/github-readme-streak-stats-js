@@ -190,7 +190,7 @@ function generateCard(stats, cardWidth = 495, cardHeight = 190, options = {}) {
 
     const x = i * colWidth + colWidth / 2;
     const baseYStart = yOffset + 15;
-    const yStart = baseYStart + ((i === 0 || i === 2) ? 10 : 0);
+    const yStart = baseYStart + ((i === 1) ? 0 : 0);
 
     // Ring for current streak column
     if (col.key === 'current') {
